@@ -1,0 +1,27 @@
+# Python cache file
+__pycache__/
+
+# Mac configuration files
+.DS_Store
+
+# SQLite file, if not used
+db.sqlite3
+
+# Environment files and directories
+env/
+.env
+
+# Indexing files from PyCharm
+.idea/
+
+# Djanog secret settings
+local.py
+
+# Translations
+*.mo
+
+# Unit test / coverage reports
+.coverage
+
+# Media files
+media/**
