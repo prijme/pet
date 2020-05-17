@@ -1,6 +1,6 @@
 {% extends 'account/base_card.html' %}
 
-{% load i18n %}
+{% load i18n socialaccount %}
 
 {% block title %}{% trans "Update account" %}{% endblock %}
 
@@ -9,6 +9,8 @@
 {% endblock %}
 
 {% block card-body %}
+
+    {% get_providers as socialaccount_providers %}
 
     <form method="POST" action="{% url 'account_update' request.user.pk %}" enctype="multipart/form-data" class="needs-validation" novalidate>
         {% csrf_token %}
@@ -57,6 +59,11 @@
         <button type="submit" class="btn btn-outline-primary">{% trans "Update" %}</button>
     </form>
     <br>
+    {% if socialaccount_providers %}
+        <br>
+        <p>{% blocktrans with site.name as site_name %}Connect your existing account to one of your social accounts:{% endblocktrans %}</p>
+        {% include "socialaccount/provider_list.html" with process="connect" %}
+    {% endif %}
     <div class="text-center py-2">
         <small>
             <a href="{% url 'account_delete' request.user.pk %}" class="text-muted">{% trans "Delete your account" %}</a>

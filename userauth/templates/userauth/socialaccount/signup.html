@@ -1,6 +1,6 @@
 {% extends 'account/base_card.html' %}
 
-{% load i18n socialaccount %}
+{% load i18n %}
 
 {% block title %}{% trans "Sign up" %}{% endblock %}
 
@@ -10,9 +10,10 @@
 
 {% block card-body %}
 
-    {% get_providers as socialaccount_providers %}
+    <p>{% blocktrans with provider_name=account.get_provider.name site_name=site.name %}You are about to use your {{provider_name}} account to login to
+    {{site_name}}. As a final step, please complete the following form:{% endblocktrans %}</p>
 
-    <form method="POST" action="{% url 'account_signup' %}" class="needs-validation" novalidate>
+    <form method="POST" action="{% url 'socialaccount_signup' %}" class="needs-validation" novalidate>
         {% csrf_token %}
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -20,14 +21,6 @@
             </div>
             <div class="form-group col-md-6">
                 {% with field=form.display_name %}{% include "account/form_field.html" %}{% endwith %}
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                {% with field=form.password1 %}{% include "account/form_field.html" %}{% endwith %}
-            </div>
-            <div class="form-group col-md-6">
-                {% with field=form.password2 %}{% include "account/form_field.html" %}{% endwith %}
             </div>
         </div>
         <div class="form-row">
@@ -40,14 +33,10 @@
         </div>
         <button type="submit" class="btn btn-outline-primary">{% trans "Sign up" %}</button>
     </form>
-    {% if socialaccount_providers %}
-        <br>
-        <p>{% blocktrans with site.name as site_name %}or sign up with one of your existing third party accounts:{% endblocktrans %}</p>
-        {% include "socialaccount/provider_list.html" with process="login" %}
-    {% endif %}
 
 {% endblock %}
 
 {% block card-footer %}
-    <p>{% trans "Already have an account?" %} <a href="{% url 'account_login' %}">{% trans "Sign in" %}</a></p>
+    <p>{% trans "Sign up with e-mail and password?" %} <a href="{% url 'account_signup' %}">{% trans "Sign up" %}</a></p>
+    <p>{% trans "Already have an account?" %} <a href="{% url 'account_login' %}">{% trans "Sign in first" %}</a>{% trans " and connect to your social account in your profile." %}</p>
 {% endblock %}
