@@ -1,0 +1,66 @@
+{% extends 'account/base_card.html' %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Update account" %}{% endblock %}
+
+{% block card-header %}
+    <h3>{% trans "Update account" %}</h3>
+{% endblock %}
+
+{% block card-body %}
+
+    <form method="POST" action="{% url 'account_update' request.user.pk %}" enctype="multipart/form-data" class="needs-validation" novalidate>
+        {% csrf_token %}
+        <div class="form-group">
+            {% with field=form.display_name %}{% include "account/form_field.html" %}{% endwith %}
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                {% with field=form.first_name %}{% include "account/form_field.html" %}{% endwith %}
+            </div>
+            <div class="form-group col-md-6">
+                {% with field=form.last_name %}{% include "account/form_field.html" %}{% endwith %}
+            </div>
+        </div>
+        <div class="form-group">
+            {% with field=form.address1 %}{% include "account/form_field.html" %}{% endwith %}
+        </div>
+        <div class="form-group">
+            {% with field=form.address2 %}{% include "account/form_field.html" %}{% endwith %}
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                {% with field=form.city %}{% include "account/form_field.html" %}{% endwith %}
+            </div>
+            <div class="form-group col-md-2">
+                {% with field=form.zip_code %}{% include "account/form_field.html" %}{% endwith %}
+            </div>
+            <div class="form-group col-md-4">
+                {% with field=form.country %}{% include "account/form_field.html" %}{% endwith %}
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                {% with field=form.mobile_phone %}{% include "account/form_field.html" %}{% endwith %}
+            </div>
+            <div class="form-group col-md-6">
+                {% with field=form.date_of_birth %}{% include "account/form_field.html" %}{% endwith %}
+            </div>
+        </div>
+        <div class="form-group">
+            {% with field=form.additional_information %}{% include "account/form_field.html" %}{% endwith %}
+        </div>
+        <div class="form-group">
+            {% with field=form.photo %}{% include "account/form_field.html" %}{% endwith %}
+        </div>
+        <button type="submit" class="btn btn-outline-primary">{% trans "Update" %}</button>
+    </form>
+    <br>
+    <div class="text-center py-2">
+        <small>
+            <a href="{% url 'account_delete' request.user.pk %}" class="text-muted">{% trans "Delete your account" %}</a>
+        </small>
+    </div>
+
+{% endblock %}

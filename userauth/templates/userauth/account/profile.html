@@ -13,6 +13,16 @@
     <div class="container">
         <div class="row">
             <div class="col border">
+                <small>{% trans "E-mail" %}:</small><br>
+                {{ request.user.email }}
+            </div>
+            <div class="col border">
+                <small>{% trans "Display name" %}:</small><br>
+                {{ request.user.display_name }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col border">
                 <small>{% trans "First name" %}:</small><br>
                 {{ request.user.first_name|default:'' }}
             </div>
@@ -21,6 +31,58 @@
                 {{ request.user.last_name|default:'' }}
             </div>
         </div>
+        <div class="row">
+            <div class="col border">
+                <small>{% trans "Address1" %}:</small><br>
+                {{ request.user.address1|default:'' }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col border">
+                <small>{% trans "Address2" %}:</small><br>
+                {{ request.user.address2|default:'' }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col border">
+                <small>{% trans "City" %}:</small><br>
+                {{ request.user.city|default:'' }}
+            </div>
+            <div class="col-2 border">
+                <small>{% trans "Postal code" %}:</small><br>
+                {{ request.user.zip_code|default:'' }}
+            </div>
+            <div class="col-4 border">
+                <small>{% trans "Country" %}:</small><br>
+                {{ request.user.country|default:'' }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col border">
+                <small>{% trans "Mobile phone" %}:</small><br>
+                {{ request.user.mobile_phone|default:'' }}
+            </div>
+            <div class="col border">
+                <small>{% trans "Date of birth" %}:</small><br>
+                {{ request.user.date_of_birth|default:'' }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col border">
+                <small>{% trans "Additional information" %}:</small><br>
+                {{ request.user.additional_information|default:'' }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col border">
+                <small>{% trans "Photo" %}:</small><br>
+                <img src="{{ request.user.photo.url }}" class="profile-image" alt="{% trans 'User photo' %}">
+            </div>
+        </div>
     </div>
 
+{% endblock %}
+
+{% block card-footer %}
+    <a href="{% url 'account_update' request.user.pk %}">{% trans "Update your account" %}</a>
 {% endblock %}
