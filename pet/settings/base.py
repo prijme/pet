@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from django.urls import reverse_lazy
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
@@ -203,6 +204,11 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_SIGNUP_FORM_CLASS = 'userauth.forms.SignupForm'
 SOCIALACCOUNT_AUTO_SIGNUP = False # to make the user fill in all required fields
+
+# specified to enforce i18n-patterns when calling LOGIN_URL or LOGIN_REDIRECT_URL
+# reverse_lazy because parameters have not yet been defined
+LOGIN_URL = reverse_lazy('account_login')
+LOGIN_REDIRECT_URL = reverse_lazy('account_profile')
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
