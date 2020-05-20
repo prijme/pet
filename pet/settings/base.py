@@ -59,11 +59,18 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.linkedin_oauth2',
+
+    'wagtail.contrib.modeladmin',
+    'wagtail.contrib.settings',
+    'wagtailtrans',
+    'cms',
 ]
 
 MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.locale.LocaleMiddleware', # after SessionMiddleware and before CommonMiddleware
+    'wagtail.core.middleware.SiteMiddleware',
+    'wagtailtrans.middleware.TranslationMiddleware', # depends on SiteMiddleware and replaces LocaleMiddleware
+    # 'django.middleware.locale.LocaleMiddleware', # after SessionMiddleware and before CommonMiddleware
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -71,7 +78,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
 
-    'wagtail.core.middleware.SiteMiddleware',
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
 
@@ -83,6 +89,7 @@ TEMPLATES = [
         'DIRS': [
             os.path.join(PROJECT_DIR, 'templates'),
             os.path.join(BASE_DIR, 'userauth/templates/userauth/'),
+            os.path.join(BASE_DIR, 'cms/templates/cms/'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -142,6 +149,8 @@ LANGUAGES = [
 ]
 
 LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale'),)
+
+WAGTAILTRANS_HIDE_TRANSLATION_TREES = True
 
 
 # Static files (CSS, JavaScript, Images)
