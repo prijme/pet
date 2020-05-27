@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% load i18n wagtailcore_tags wagtailimages_tags static %}
+
+{% block body_class %}template-articleindexpage{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid mt-4">
+        <div class="page-title">
+            <h1>{{ page.title }}</h1>
+        </div>
+        <div class="page-intro">
+            {{ page.intro|richtext }}
+        </div>
+    </div>
+
+    <div class="container-fluid mt-4">
+        <div class="row">
+            {% for childpage in page.articlepages %}
+                <div class="col-auto mb-3">
+                    <div class="card article">
+                        <a href="{{ childpage.url }}">
+                            {% if childpage.specific.image %}
+                                {% image childpage.specific.image fill-320x240 class="img-front rounded" %}
+                            {% else %}
+                                <img alt="" src="{% static 'images/transparent.png' %}" width="320" height="240" class="img-default rounded">
+                            {% endif %}
+                            <img alt="" src="{% static 'images/transparent.png' %}" width="320" height="240" class="img-background rounded">
+                            <div class="card-img-overlay">
+                                <h5 class="card-title">{{ childpage.title }}</h5>
+                                <p class="card-subtitle">{{ childpage.specific.intro|striptags|truncatewords:15 }}</p>
+                                <p class="card-text small">{{ childpage.specific.first_published_at }}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-auto">
+                <a href="/">{% trans "Home" %}</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

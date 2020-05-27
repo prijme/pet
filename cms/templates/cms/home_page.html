@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags static i18n %}
 
 {% block body_class %}template-homepage{% endblock %}
 
@@ -14,5 +14,41 @@
             {{ page.intro|richtext }}
         </div>
     </div>
+
+    {% if page.article_section %}
+        <div class="container-fluid mt-4">
+            <div class="intro">
+                <h1>{{ page.article_section_title }}</h1>
+            </div>
+            <div class="intro">
+                {{ page.article_section_intro|richtext }}
+            </div>
+        </div>
+        <div class="container-fluid mt-4">
+            <div class="row">
+                {% for childpage in page.article_section.specific.featured_articlepages %}
+                    <div class="col-auto mb-3">
+                        <div class="card article">
+                            <a href="{{ childpage.url }}">
+                                {% if childpage.specific.image %}
+                                    {% image childpage.specific.image fill-320x240 class="img-front rounded" %}
+                                {% else %}
+                                    <img alt="" src="{% static 'images/transparent.png' %}" width="320" height="240" class="img-default rounded">
+                                {% endif %}
+                                <img alt="" src="{% static 'images/transparent.png' %}" width="320" height="240" class="img-background rounded">
+                                <div class="card-img-overlay">
+                                    <h5 class="card-title">{{ childpage.title }}</h5>
+                                    <p class="card-subtitle">{{ childpage.specific.intro|striptags|truncatewords:15 }}</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="container">
+            <p><a href="{{ page.article_section.url }}">{% trans "View more" %}</a></p>
+        </div>
+    {% endif %}
 
 {% endblock %}

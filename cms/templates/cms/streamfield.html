@@ -1,0 +1,21 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% for block in page.body %}
+    {% if block.block_type == 'image' %}
+        <div class="block-{{ block.block_type }}-{{ block.value.float }}">
+            <!-- make use of specific properties of Wagtail 'image' tag -->
+            {% if block.value.size == "small" %}
+                {% image block.value.image width-240 class="img-fluid" %}
+            {% elif block.value.size == "medium" %}
+                {% image block.value.image width-480 class="img-fluid" %}
+            {% else %}
+                {% image block.value.image width-2400 class="img-fluid" %}
+            {% endif %}
+            {{ block.value.caption }}
+        </div>
+    {% else %}
+        <div class="block-{{ block.block_type }}">
+            {% include_block block %}
+        </div>
+    {% endif %}
+{% endfor %}
