@@ -38,7 +38,7 @@
                                 <img alt="" src="{% static 'images/transparent.png' %}" width="320" height="240" class="img-background rounded">
                                 <div class="card-img-overlay">
                                     <h5 class="card-title">{{ childpage.title }}</h5>
-                                    <p class="card-subtitle">{{ childpage.specific.intro|striptags|truncatewords:15 }}</p>
+                                    <p class="card-subtitle">{{ childpage.specific.intro|striptags|safe|truncatewords:15 }}</p>
                                 </div>
                             </a>
                         </div>

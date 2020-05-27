@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PythonEatsTail\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-19 10:38+0200\n"
+"POT-Creation-Date: 2020-05-27 22:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Paul Smits paul@prijme.com\n"
 "Language-Team: français <LL@li.org>\n"
@@ -17,6 +17,71 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: cms/blocks.py:8 cms/models.py:42
+#: env/lib/python3.8/site-packages/django/db/models/fields/files.py:360
+msgid "Image"
+msgstr "Image"
+
+#: cms/blocks.py:9
+msgid "Caption"
+msgstr "Légende"
+
+#: cms/blocks.py:12
+msgid "Right"
+msgstr "Droite"
+
+#: cms/blocks.py:12
+msgid "Left"
+msgstr "Gauche"
+
+#: cms/blocks.py:12
+msgid "Center"
+msgstr "Centre"
+
+#: cms/blocks.py:14
+msgid "Float"
+msgstr "Flotte"
+
+#: cms/blocks.py:18
+msgid "Small"
+msgstr "Petit"
+
+#: cms/blocks.py:18
+msgid "Medium"
+msgstr "Moyen"
+
+#: cms/blocks.py:18
+msgid "Large"
+msgstr "Grand"
+
+#: cms/blocks.py:20
+msgid "Size"
+msgstr "Taille"
+
+#: cms/models.py:16
+msgid "Title to display above the article section"
+msgstr "Titre à afficher au-dessus de la section article"
+
+#: cms/models.py:25
+msgid "Featured articles for the homepage"
+msgstr "Articles en vedette pour la page d'accueil"
+
+#: cms/models.py:26 cms/models.py:35
+msgid "Article section"
+msgstr "Section article"
+
+#: cms/templates/cms/article_index_page.html:45
+msgid "Home"
+msgstr "Acceuil"
+
+#: cms/templates/cms/article_page.html:34
+msgid "Return to articles"
+msgstr "Retour aux articles"
+
+#: cms/templates/cms/home_page.html:50
+msgid "View more"
+msgstr "Voir plus"
 
 #: env/lib/python3.8/site-packages/django/contrib/messages/apps.py:7
 msgid "Messages"
@@ -398,10 +463,6 @@ msgstr ""
 
 #: env/lib/python3.8/site-packages/django/db/models/fields/files.py:221
 msgid "File"
-msgstr ""
-
-#: env/lib/python3.8/site-packages/django/db/models/fields/files.py:360
-msgid "Image"
 msgstr ""
 
 #: env/lib/python3.8/site-packages/django/db/models/fields/related.py:778
@@ -1299,11 +1360,7 @@ msgstr "Nom de famille"
 msgid "Display name"
 msgstr "Nom pseudo"
 
-#: userauth/forms.py:23
-msgid "Will be shown e.g. when commenting."
-msgstr "Sera affiché par exemple en commentant."
-
-#: userauth/models.py:10
+#: userauth/forms.py:23 userauth/models.py:10
 msgid "Will be shown e.g. when commenting"
 msgstr "Sera affiché par exemple en commentant."
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PythonEatsTail\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-19 10:47+0200\n"
+"POT-Creation-Date: 2020-05-27 22:18+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Paul Smits paul@prijme.com\n"
 "Language-Team: Nederlands <LL@li.org>\n"
@@ -16,6 +16,71 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: cms/blocks.py:8 cms/models.py:42
+#: env/lib/python3.8/site-packages/django/db/models/fields/files.py:360
+msgid "Image"
+msgstr "Afbeelding"
+
+#: cms/blocks.py:9
+msgid "Caption"
+msgstr "Bijschrift"
+
+#: cms/blocks.py:12
+msgid "Right"
+msgstr "Rechts"
+
+#: cms/blocks.py:12
+msgid "Left"
+msgstr "Linkcs"
+
+#: cms/blocks.py:12
+msgid "Center"
+msgstr "Midden"
+
+#: cms/blocks.py:14
+msgid "Float"
+msgstr "Float"
+
+#: cms/blocks.py:18
+msgid "Small"
+msgstr "Klein"
+
+#: cms/blocks.py:18
+msgid "Medium"
+msgstr "Medium"
+
+#: cms/blocks.py:18
+msgid "Large"
+msgstr "Groot"
+
+#: cms/blocks.py:20
+msgid "Size"
+msgstr "Afmeting"
+
+#: cms/models.py:16
+msgid "Title to display above the article section"
+msgstr "Titel boven de artikelensectie"
+
+#: cms/models.py:25
+msgid "Featured articles for the homepage"
+msgstr "Uitgelichte artikelen voor de homepage"
+
+#: cms/models.py:26 cms/models.py:35
+msgid "Article section"
+msgstr "Artikelensectie"
+
+#: cms/templates/cms/article_index_page.html:45
+msgid "Home"
+msgstr "Home"
+
+#: cms/templates/cms/article_page.html:34
+msgid "Return to articles"
+msgstr "Terug naar de artikelen"
+
+#: cms/templates/cms/home_page.html:50
+msgid "View more"
+msgstr "Lees meer"
 
 #: env/lib/python3.8/site-packages/django/contrib/messages/apps.py:7
 msgid "Messages"
@@ -59,10 +124,8 @@ msgid "Enter a valid integer."
 msgstr ""
 
 #: env/lib/python3.8/site-packages/django/core/validators.py:166
-#, fuzzy
-#| msgid "Confirm e-mail address"
 msgid "Enter a valid email address."
-msgstr "Bevestig mailadres"
+msgstr "Voer een geldig mailadres in"
 
 #. Translators: "letters" means latin letters: a-z and A-Z.
 #: env/lib/python3.8/site-packages/django/core/validators.py:240
@@ -294,10 +357,8 @@ msgid "Duration"
 msgstr ""
 
 #: env/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1587
-#, fuzzy
-#| msgid "Confirm e-mail address"
 msgid "Email address"
-msgstr "Bevestig mailadres"
+msgstr "Mailadres"
 
 #: env/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1610
 msgid "File path"
@@ -326,16 +387,12 @@ msgid "Big (8 byte) integer"
 msgstr ""
 
 #: env/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1817
-#, fuzzy
-#| msgid "Address1"
 msgid "IPv4 address"
-msgstr "Adresregel 1"
+msgstr ""
 
 #: env/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1848
-#, fuzzy
-#| msgid "Address1"
 msgid "IP address"
-msgstr "Adresregel 1"
+msgstr ""
 
 #: env/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1928
 #: env/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1929
@@ -405,10 +462,6 @@ msgstr ""
 
 #: env/lib/python3.8/site-packages/django/db/models/fields/files.py:221
 msgid "File"
-msgstr ""
-
-#: env/lib/python3.8/site-packages/django/db/models/fields/files.py:360
-msgid "Image"
 msgstr ""
 
 #: env/lib/python3.8/site-packages/django/db/models/fields/related.py:778
@@ -561,10 +614,8 @@ msgstr ""
 
 #: env/lib/python3.8/site-packages/django/forms/formsets.py:391
 #: userauth/templates/userauth/account/delete.html:16
-#, fuzzy
-#| msgid "Delete account"
 msgid "Delete"
-msgstr "Verwijder account"
+msgstr "Verwijder"
 
 #: env/lib/python3.8/site-packages/django/forms/models.py:754
 #, python-format
@@ -1086,10 +1137,8 @@ msgstr ""
 #: env/lib/python3.8/site-packages/django/views/generic/dates.py:61
 #: env/lib/python3.8/site-packages/django/views/generic/dates.py:111
 #: env/lib/python3.8/site-packages/django/views/generic/dates.py:208
-#, fuzzy
-#| msgid "Date of birth"
 msgid "Date out of range"
-msgstr "Geboortedatum"
+msgstr ""
 
 #: env/lib/python3.8/site-packages/django/views/generic/dates.py:90
 msgid "No month specified"
