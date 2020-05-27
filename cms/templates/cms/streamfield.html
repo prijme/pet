@@ -13,6 +13,11 @@
             {% endif %}
             {{ block.value.caption }}
         </div>
+    {% elif block.block_type == 'video' %}
+        <div class="block-{{ block.block_type }}-{{ block.value.float }} block-{{ block.block_type }}-{{ block.value.size }}">
+            {% include_block block.value.video %}
+            {{ block.value.caption }}
+        </div>
     {% else %}
         <div class="block-{{ block.block_type }}">
             {% include_block block %}

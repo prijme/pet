@@ -1,4 +1,4 @@
-from .blocks import InlineImageBlock
+from .blocks import InlineImageBlock, InlineVideoBlock
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from wagtail.core import blocks
@@ -45,6 +45,7 @@ class ArticlePage(TranslatablePage):
     body = StreamField([
         ('paragraph', blocks.RichTextBlock()),
         ('image', InlineImageBlock()),
+        ('video', InlineVideoBlock()),
     ])
 
     content_panels = TranslatablePage.content_panels + [

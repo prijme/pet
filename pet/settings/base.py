@@ -245,3 +245,6 @@ SOCIALACCOUNT_PROVIDERS = {
         ],
     },
 }
+
+# Wagtail setting for embedded video https://docs.wagtail.io/en/v2.9/topics/writing_templates.html#responsive-embeds
+WAGTAILEMBEDS_RESPONSIVE_HTML = True
