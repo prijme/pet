@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% load i18n wagtailcore_tags wagtailimages_tags static %}
+
+{% block body_class %}template-themeindexpage{% endblock %}
+
+{% block content %}
+
+    <div class="container-fluid mt-4">
+        <div class="intro">
+            <h1>{{ page.title }}</h1>
+        </div>
+        <div class="intro">
+            {{ page.intro|richtext }}
+        </div>
+    </div>
+
+    <div class="container-fluid mt-4">
+        <div class="row">
+            {% for childpage in page.get_children %}
+                <div class="col-auto mb-3">
+                    <div class="card theme">
+                        <a href="{{ childpage.url }}">
+                            {% if childpage.specific.image %}
+                                {% image childpage.specific.image fill-320x240 class="img-front rounded-circle" %}
+                            {% else %}
+                                <img alt="" src="{% static 'images/transparent.png' %}" width="320" height="240" class="img-default rounded-circle">
+                            {% endif %}
+                            <img alt="" src="{% static 'images/transparent.png' %}" width="320" height="240" class="img-background rounded-circle">
+                            <div class="card-img-overlay">
+                                <br><h5 class="card-title text-center">{{ childpage.title }}</h5>
+                                <p class="card-subtitle text-center">{{ childpage.specific.intro|striptags|truncatewords:15 }}</p>
+                           </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-auto">
+                <a href="/">{% trans "Home" %}</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
