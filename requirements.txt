@@ -5,3 +5,4 @@ django-countries==6.1.2
 django-allauth==0.41.0
 django-widget-tweaks==1.4.8
 wagtailtrans==2.1
+wagtailcodeblock==1.17.1.0

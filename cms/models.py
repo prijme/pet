@@ -5,6 +5,7 @@ from wagtail.core import blocks
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, PageChooserPanel
 from wagtail.core.fields import RichTextField, StreamField
+from wagtailcodeblock.blocks import CodeBlock
 from wagtailtrans.models import TranslatablePage
 
 class HomePage(TranslatablePage):
@@ -43,7 +44,8 @@ class ArticlePage(TranslatablePage):
     )
     featured = models.BooleanField(default=False)
     body = StreamField([
-        ('paragraph', blocks.RichTextBlock()),
+        ('paragraph', blocks.RichTextBlock(features=['h1', 'h2', 'h3', 'h4', 'h5', 'bold', 'italic', 'ol', 'ul', 'hr', 'link', 'image', 'code', 'blockquote'])),
+        ('code', CodeBlock(label=_("Code"))),
         ('image', InlineImageBlock()),
         ('video', InlineVideoBlock()),
     ])

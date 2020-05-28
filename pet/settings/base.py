@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'wagtail.contrib.settings',
     'wagtailtrans',
     'cms',
+    'wagtailcodeblock',
 ]
 
 MIDDLEWARE = [
@@ -248,3 +249,16 @@ SOCIALACCOUNT_PROVIDERS = {
 
 # Wagtail setting for embedded video https://docs.wagtail.io/en/v2.9/topics/writing_templates.html#responsive-embeds
 WAGTAILEMBEDS_RESPONSIVE_HTML = True
+
+# wagtailcodeblock theme and languages
+WAGTAIL_CODE_BLOCK_THEME = None
+WAGTAIL_CODE_BLOCK_LANGUAGES = (
+    ('bash', 'Bash/Shell'),
+    ('css', 'CSS'),
+    ('html', 'HTML'),
+    ('javascript', 'Javascript'),
+    ('json', 'JSON'),
+    ('python', 'Python'),
+    ('sql', 'SQL'),
+    ('yaml', 'YAML'),
+)

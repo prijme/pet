@@ -107,3 +107,8 @@ p.card-subtitle {
 a:hover .img-background {
     opacity: 0.6;
 }
+/* to adjust inline code to Wagtailcodeblock default styling */
+code {
+    background-color: #F3F0EE;
+    padding: 2px;
+}
