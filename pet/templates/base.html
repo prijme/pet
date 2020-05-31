@@ -29,6 +29,8 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
 
+        {% include "main_menu.html" %}
+
         {% block content %}{% endblock %}
 
         {# Global javascript #}

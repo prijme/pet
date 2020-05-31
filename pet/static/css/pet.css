@@ -119,3 +119,22 @@ code {
     background-color: #F3F0EE;
     padding: 2px;
 }
+/* for the navigation menu */
+a.menuitem {
+    color: navy;
+    font-size: large;
+    font-weight: bold;
+}
+.dropdown-menu {
+    min-width: 60px;
+}
+/* slightly enlarge the image on hover */
+a.menuitem .image-menu {
+    transition: transform 300ms;
+}
+a.menuitem:hover .image-menu {
+    transform: scale(1.1);
+}
+a.menuicon:hover {
+    text-decoration: none;
+}

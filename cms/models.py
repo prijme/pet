@@ -1,11 +1,15 @@
 from .blocks import InlineImageBlock, InlineVideoBlock
 from django import forms
 from django.db import models
+from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
-from modelcluster.fields import ParentalManyToManyField
+from django_extensions.db.fields import AutoSlugField
+from modelcluster.fields import ParentalManyToManyField, ParentalKey
+from modelcluster.models import ClusterableModel
 from wagtail.core import blocks
+from wagtail.core.models import Orderable
 from wagtail.images.edit_handlers import ImageChooserPanel
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, PageChooserPanel
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, PageChooserPanel, InlinePanel
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.snippets.models import register_snippet
@@ -146,3 +150,62 @@ class ArticleIndexPage(TranslatablePage):
     content_panels = TranslatablePage.content_panels + [
         FieldPanel('intro', classname='full'),
     ]
+
+
+class MenuItem(Orderable):
+    menu = ParentalKey('Menu', related_name='menu_items', help_text=_("Name of the menu to which this item belongs"))
+    title = models.CharField(max_length=50, help_text=_("Title of menu item that will be displayed"))
+    link_url = models.CharField(max_length=500, blank=True, null=True, help_text=_("URL to link to, e.g. /accounts/signup (no language prefix, LEAVE BLANK if you want to link to a page instead of a URL)"))
+    link_page = models.ForeignKey(
+        TranslatablePage, blank=True, null=True, related_name='+', on_delete=models.CASCADE, help_text=_("Page to link to (LEAVE BLANK if you want to link to a URL instead)"),
+    )
+    name_of_submenu = models.CharField(
+        blank=True, null=True, max_length=50, help_text=_("Name of submenu (LEAVE BLANK if there is no custom submenu)")
+    )
+    icon = models.ForeignKey(
+        'wagtailimages.Image', blank=True, null=True, on_delete=models.SET_NULL, related_name='+',
+    )
+    show_when = models.CharField(
+        max_length=15,
+        choices=[('always', _("Always")), ('logged_in', _("When logged in")), ('not_logged_in', _("When not logged in"))],
+        default='always',
+    )
+
+    panels = [
+        FieldPanel('title'),
+        FieldPanel('link_url'),
+        PageChooserPanel('link_page'),
+        FieldPanel('name_of_submenu'),
+        ImageChooserPanel('icon'),
+        FieldPanel('show_when'),
+    ]
+
+    @property
+    def slug(self):
+        # becomes slug of submenu if there is one, otherwise slug of link_page
+        if self.name_of_submenu:
+            return slugify(self.name_of_submenu)
+        elif self.link_page:
+            return self.link_page.slug
+        return None
+
+    def __str__(self):
+        return self.title
+
+
+@register_snippet
+class Menu(ClusterableModel):
+
+    name = models.CharField(max_length=50)
+    slug = AutoSlugField(populate_from='name', editable=True, help_text="Unique identifier of menu. Will be populated automatically from name of menu. Change only if needed.")
+
+    panels = [
+        MultiFieldPanel([
+            FieldPanel('name'),
+            FieldPanel('slug'),
+        ], heading=_("Menu")),
+        InlinePanel('menu_items', label=_("Menu Item"))
+    ]
+
+    def __str__(self):
+        return self.name
