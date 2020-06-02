@@ -65,7 +65,6 @@ INSTALLED_APPS = [
     'wagtailtrans',
     'cms',
     'wagtailcodeblock',
-    'django_extensions',
 ]
 
 MIDDLEWARE = [
