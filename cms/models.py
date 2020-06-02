@@ -9,6 +9,7 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, PageChooserPanel
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
+from wagtail.snippets.models import register_snippet
 from wagtailcodeblock.blocks import CodeBlock
 from wagtailtrans.models import TranslatablePage
 
