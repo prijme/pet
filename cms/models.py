@@ -1,15 +1,13 @@
 from .blocks import InlineImageBlock, InlineVideoBlock
 from django import forms
 from django.db import models
-from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
-from django_extensions.db.fields import AutoSlugField
-from modelcluster.fields import ParentalManyToManyField, ParentalKey
+from modelcluster.fields import ParentalManyToManyField
 from modelcluster.models import ClusterableModel
 from wagtail.core import blocks
 from wagtail.core.models import Orderable
 from wagtail.images.edit_handlers import ImageChooserPanel
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, PageChooserPanel, InlinePanel
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, PageChooserPanel
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.snippets.models import register_snippet
