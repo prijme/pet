@@ -1,8 +1,9 @@
 Django==3.0.6
-wagtail==2.8.1
+wagtail==2.9
 psycopg2-binary==2.8.5
 django-countries==6.1.2
-django-allauth==0.41.0
+django-allauth==0.42.0
 django-widget-tweaks==1.4.8
 wagtailtrans==2.1
 wagtailcodeblock==1.17.1.0
+django-extensions==2.2.9
