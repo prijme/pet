@@ -153,6 +153,14 @@ class ArticleIndexPage(TranslatablePage):
     ]
 
 
+class TextPage(TranslatablePage):
+    text = RichTextField(blank=True)
+
+    content_panels = TranslatablePage.content_panels + [
+        FieldPanel('text', classname='full'),
+    ]
+
+
 @register_snippet
 class Menu(ClusterableModel):
 
@@ -232,3 +240,19 @@ class MenuItem(Orderable):
 
     def __str__(self):
         return self.title
+
+
+@register_snippet
+class CompanyLogo(models.Model):
+    name = models.CharField(max_length=250)
+    logo = models.ForeignKey(
+        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+    )
+
+    panels = [
+        FieldPanel('name', classname='full'),
+        ImageChooserPanel('logo'),
+    ]
+
+    def __str__(self):
+        return self.name

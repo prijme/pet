@@ -1,0 +1,17 @@
+{% load cms_tags %}
+
+{% get_menu "footer" None request.user.is_authenticated as footer %}
+
+<footer>
+    <ul>
+        <li>
+            {% for item in footer %}
+                {%  if item.url %}
+                    <a href="{{ item.url }}">{{ item.title }}</a>
+                {% else %}
+                    <span>{{ item.title }}</span>
+                {%  endif %}
+            {% endfor %}
+        </li>
+    </ul>
+</footer>

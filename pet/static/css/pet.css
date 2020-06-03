@@ -9,6 +9,15 @@ h1, h2, h3, h4, h5 {
     max-width: 100%;
     height: auto;
 }
+/* to make space for the footer on the bottom of the page */
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 50px;
+}
 /* for the images and text inside streamfields */
 .block-paragraph p {
     color: black;
@@ -137,4 +146,28 @@ a.menuitem:hover .image-menu {
 }
 a.menuicon:hover {
     text-decoration: none;
+}
+/* for the logo */
+.navbar .navbar-brand {
+    font-family: 'IM Fell English', serif;
+    font-size: xx-large;
+    color: navy;
+}
+/* for the footer; see also settings for html and body */
+footer {
+    background-color: navy;
+    height: 50px;
+    padding-top: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+footer ul {
+    list-style-type: none;
+}
+footer li span, footer li a, footer li a:hover {
+    display: inline;
+    color: white;
+    font-size: 12px;
+    margin-right: 40px;
 }
