@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
 
+    'modeltranslation', # has to be before django.contrib.admin, will raise error otherwise
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
