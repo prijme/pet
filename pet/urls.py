@@ -22,6 +22,7 @@ urlpatterns = [
 urlpatterns += i18n_patterns(
     path('accounts/', include('allauth.urls')),
     path('accounts/', include('userauth.urls')),
+    path('language/', include('cms.urls')),
 )
 
 if settings.DEBUG:
