@@ -171,3 +171,28 @@ footer li span, footer li a, footer li a:hover {
     font-size: 12px;
     margin-right: 40px;
 }
+/* for the comment section on article pages */
+.comment-form  {
+    width: 800px;
+    max-width: 100%;
+    margin-left: 0;
+}
+.comment {
+    border: 1px solid lightgrey;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+.media-list {
+    width: 800px;
+    max-width: 100%;
+    margin-left: 0;
+}
+/* for thumbnail image in comments */
+.profile-image-thumbnail {
+    float: left;
+    width: 64px;
+    height: 64px;
+    max-width: 100%;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}

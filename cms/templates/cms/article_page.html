@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% load i18n wagtailcore_tags %}
+{% load i18n wagtailcore_tags comments comments_xtd wagtailimages_tags widget_tweaks static %}
 
 {% block body_class %}template-articlepage{% endblock %}
 
@@ -44,5 +44,17 @@
             </div>
         </div>
     </div>
+
+    <div class="container-fluid mt-4 comment-form">
+        {% render_comment_form for page %}
+    </div>
+
+    {% get_comment_count for page as comment_count %}
+    {% if comment_count %}
+        <hr>
+        <div class="container-fluid mt-4 media-list">
+            {% render_xtdcomment_tree for page allow_feedback show_feedback %}
+        </div>
+    {% endif %}
 
 {% endblock %}

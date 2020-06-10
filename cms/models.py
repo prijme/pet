@@ -16,6 +16,7 @@ from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.snippets.models import register_snippet
 from wagtailcodeblock.blocks import CodeBlock
 from wagtailtrans.models import TranslatablePage, Language
+from django_comments_xtd.models import XtdComment
 
 class HomePage(TranslatablePage):
     intro = RichTextField(blank=True)
@@ -115,12 +116,16 @@ class ArticlePage(TranslatablePage):
     def themepages(self):
         return ThemePage.objects.filter(theme__in=self.themes.all(), language=self.language)
 
+    def get_absolute_url(self):
+        return self.get_url()
+
     content_panels = TranslatablePage.content_panels + [
         FieldPanel('intro'),
         FieldPanel('themes', widget=forms.CheckboxSelectMultiple),
         FieldPanel('featured'),
         ImageChooserPanel('image'),
         StreamFieldPanel('body'),
+        InlinePanel('customcomments', label=_("Comments")),
     ]
 
 
@@ -256,3 +261,12 @@ class CompanyLogo(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class CustomComment(XtdComment):
+    page = ParentalKey(ArticlePage, on_delete=models.CASCADE, related_name='customcomments')
+
+    def save(self, *args, **kwargs):
+        self.user_name = self.user.display_name
+        self.page = ArticlePage.objects.get(pk=self.object_pk)
+        super(CustomComment, self).save(*args, **kwargs)
