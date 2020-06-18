@@ -18,6 +18,8 @@ from wagtail.snippets.models import register_snippet
 from wagtailcodeblock.blocks import CodeBlock
 from wagtailtrans.models import TranslatablePage, Language
 from django_comments_xtd.models import XtdComment
+from wagtailstreamforms.blocks import WagtailFormBlock
+from wagtailstreamforms.models.abstract import AbstractFormSetting
 
 class HomePage(TranslatablePage):
     intro = RichTextField(blank=True)
@@ -276,3 +278,19 @@ class CustomComment(XtdComment):
         self.user_name = self.user.display_name
         self.page = ArticlePage.objects.get(pk=self.object_pk)
         super(CustomComment, self).save(*args, **kwargs)
+
+
+class ContactPage(TranslatablePage):
+    intro = RichTextField(blank=True)
+    body = StreamField([
+        ('paragraph', blocks.RichTextBlock()),
+        ('form', WagtailFormBlock()),
+    ])
+    content_panels = TranslatablePage.content_panels + [
+        FieldPanel('intro'),
+        StreamFieldPanel('body'),
+    ]
+
+
+class AdvancedFormSetting(AbstractFormSetting):
+    to_address = models.EmailField()

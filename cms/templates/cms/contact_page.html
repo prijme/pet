@@ -1,0 +1,21 @@
+{% extends 'account/base_card.html' %}
+
+{% load i18n wagtailcore_tags %}
+
+{% block card-header %}
+    <h3>{{ page.title }}</h3>
+    <p>{{ page.intro|richtext }}</p>
+{% endblock %}
+
+{% block card-body %}
+    {% if messages %}
+        {% for message in messages %}
+            <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    {% if page.body %}
+        {%  include "cms/streamfield.html" %}
+    {% endif %}
+
+{% endblock %}
