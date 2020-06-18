@@ -4,6 +4,36 @@
 
 {% block body_class %}template-articlepage{% endblock %}
 
+{% block extra_js %}
+    <script>
+        $(document).ready(function(){
+
+            $("#id_login_first_link").click(function(event) {
+                event.preventDefault();
+                $("#id_login_form").show();
+            });
+
+            $("#id_submit_login_form").click(function(event){
+                event.preventDefault();
+
+                $.ajax({
+                    type:"POST",
+                    url: "{% url 'account_login' %}",
+                    data: $('#id_login_form').serialize(),
+                    success: function(response, status){
+                        $("#id_login_form").hide();
+                        $("#id_login_first_link").hide();
+                        location.reload();
+                    },
+                    error: function(xhr, status, error){
+                        $('#id_login_form').submit();
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}
+
 {% block content %}
 
     <div class="container-fluid mt-4">
@@ -44,6 +74,31 @@
             </div>
         </div>
     </div>
+
+    {% if not request.user.is_authenticated %}
+        <div id="id_comment_invite" class="container-fluid mt-4">
+            <p>{% trans "Comment on this article ("%}<a href="#" id="id_login_first_link">{% trans "sign in first" %}</a>{% trans " or confirm by name and email below)" %}</p>
+        </div>
+    {% endif %}
+
+    {% if not request.user.is_authenticated %}
+        <div class="container mt-4 ml-0">
+            <form method="POST" id="id_login_form" action="{% url 'account_login' %}" style="display: none">
+                {% csrf_token %}
+                <div class="row align-items-end">
+                    <div class="col-6 form-group">
+                        {% with field=login_form.login %}{% include "account/form_field.html" %}{% endwith %}
+                    </div>
+                    <div class="col-4 form-group">
+                        {% with field=login_form.password %}{% include "account/form_field.html" %}{% endwith %}
+                    </div>
+                    <div class="col-2 form-group">
+                        <button id="id_submit_login_form" class="btn btn-outline-primary">{% trans "Sign in" %}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    {% endif %}
 
     <div class="container-fluid mt-4 comment-form">
         {% render_comment_form for page %}
