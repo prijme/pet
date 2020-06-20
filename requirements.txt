@@ -11,3 +11,4 @@ django-modeltranslation==0.15
 django-comments-xtd==2.6.1
 wagtailstreamforms==3.10
 django-recaptcha==2.0.6
+coverage==5.1
