@@ -1,5 +1,5 @@
 import factory
-from ..models import Theme, HomePage, ThemePage, ThemeIndexPage, ArticleIndexPage, ArticlePage
+from ..models import Theme, HomePage, ThemePage, ThemeIndexPage, ArticleIndexPage, ArticlePage, Menu, MenuItem
 from wagtail.core.models import Page
 from datetime import timedelta
 from django.utils import timezone
@@ -81,3 +81,17 @@ class ArticlePageFactory(PageFactory):
         if extracted:
             for theme in extracted:
                 self.themes.add(theme)
+
+
+class MenuFactory(factory.django.DjangoModelFactory):
+    class Meta:
+        model = Menu
+
+    title = factory.Sequence(lambda n: 'Menu {0}'.format(n))
+
+
+class MenuItemFactory(factory.django.DjangoModelFactory):
+    class Meta:
+        model = MenuItem
+
+    menu = factory.SubFactory(MenuFactory)

@@ -222,7 +222,7 @@ class MenuItem(Orderable):
 
     def trans_page(self, language_code):
         if self.link_page:
-            can_page = self.link_page if self.link_page.is_canonical else self.link_page.canonical_page
+            can_page = self.link_page.canonical_page if self.link_page.canonical_page else self.link_page
             if language_code == settings.LANGUAGE_CODE: # requested language is the canonical language
                 return can_page
             try:
