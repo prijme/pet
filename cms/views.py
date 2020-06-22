@@ -25,8 +25,8 @@ def set_language_from_url(request, language_code):
             prev_url_path = Site.find_for_request(request).root_page.url_path + prev_path[1:]
             prev_page = TranslatablePage.objects.get(url_path=prev_url_path)
 
-            # if the current page is not canonical, get the canonical page
-            can_page = prev_page if prev_page.is_canonical else prev_page.canonical_page
+            # if the current page has a canonical page, use that, otherwise the current page itself is canonical
+            can_page = prev_page.canonical_page if prev_page.canonical_page else prev_page
 
             # if the requested language is the canonical (default) language, use the canonical page, else find the translated page
             language = Language.objects.get(code=language_code)
