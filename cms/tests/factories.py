@@ -1,8 +1,11 @@
 import factory
-from ..models import Theme, HomePage, ThemePage, ThemeIndexPage, ArticleIndexPage, ArticlePage, Menu, MenuItem
+from ..models import Theme, HomePage, ThemePage, ThemeIndexPage, ArticleIndexPage, ArticlePage, Menu, MenuItem, CustomComment
 from wagtail.core.models import Page
 from datetime import timedelta
 from django.utils import timezone
+from userauth.models import CustomUser
+from django.contrib.contenttypes.models import ContentType
+from django.contrib.sites.models import Site as DjangoSite
 
 
 class ThemeFactory(factory.django.DjangoModelFactory):
@@ -95,3 +98,22 @@ class MenuItemFactory(factory.django.DjangoModelFactory):
         model = MenuItem
 
     menu = factory.SubFactory(MenuFactory)
+
+
+class CustomUserFactory(factory.django.DjangoModelFactory):
+    class Meta:
+        model = CustomUser
+
+    username = factory.Sequence(lambda n: 'Username{0}'.format(n))
+    password = factory.Sequence(lambda n: 'Password{0}'.format(n))
+
+
+class CustomCommentFactory(factory.django.DjangoModelFactory):
+    class Meta:
+        model = CustomComment
+
+    content_type = ContentType.objects.get_for_model(ArticlePage)
+    site = DjangoSite.objects.get_current()
+    page = factory.SubFactory(ArticlePageFactory)
+    user = factory.SubFactory(CustomUserFactory)
+    comment = factory.Sequence(lambda n: 'Comment {0}'.format(n))
