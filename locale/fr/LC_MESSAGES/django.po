@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PythonEatsTail\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-02 14:23+0200\n"
+"POT-Creation-Date: 2020-07-03 13:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Paul Smits paul@prijme.com\n"
 "Language-Team: français <LL@li.org>\n"
@@ -92,7 +92,7 @@ msgstr "Thèmes"
 
 #: cms/models.py:114
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 #: cms/models.py:136
 msgid "Comments"
@@ -119,16 +119,20 @@ msgid ""
 "URL to link to, e.g. /accounts/signup (no language prefix, LEAVE BLANK if "
 "you want to link to a page instead of a URL)"
 msgstr ""
-"URL vers laquelle créer un lien, p.e. /accounts/signup (pas de préfixe de langue, "
-"LAISSER BLANC si vous voulez créer un lien vers une page au lieu d'une URL)"
+"URL vers laquelle créer un lien, p.e. /accounts/signup (pas de préfixe de "
+"langue, LAISSER VIDE si vous voulez créer un lien vers une page au lieu "
+"d'une URL)"
 
 #: cms/models.py:200
 msgid "Page to link to (LEAVE BLANK if you want to link to a URL instead)"
-msgstr "Page vers laquelle créer un lien (LAISSER BLANC si vous souhaitez créer un lien vers une URL à la place)"
+msgstr ""
+"Page vers laquelle créer un lien (LAISSER VIDE si vous souhaitez créer un "
+"lien vers une URL à la place)"
 
 #: cms/models.py:203
 msgid "Title of submenu (LEAVE BLANK if there is no custom submenu)"
-msgstr "Titre du sous-menu (LAISSER BLANC s'il n'y a pas de sous-menu personnalisé)"
+msgstr ""
+"Titre du sous-menu (LAISSER VIDE s'il n'y a pas de sous-menu personnalisé)"
 
 #: cms/models.py:210
 msgid "Always"
@@ -236,7 +240,7 @@ msgstr "Voir les notes de version"
 
 #: home/templates/home/welcome_page.html:27
 msgid "Welcome to your new Wagtail site!"
-msgstr ""
+msgstr "Bienvenue sur votre nouveau site Wagtail!"
 
 #: home/templates/home/welcome_page.html:28
 msgid ""
@@ -245,8 +249,8 @@ msgid ""
 "below."
 msgstr ""
 "N'hésitez pas à <a href=\"https://github.com/wagtail/wagtail/wiki/Slack"
-"\">rejoindre notre communauté sur Slack</a>, ou commencez avec l'un des liens "
-"au dessous."
+"\">rejoindre notre communauté sur Slack</a>, ou commencez avec l'un des "
+"liens au dessous."
 
 #: home/templates/home/welcome_page.html:35
 msgid "Wagtail Documentation"
