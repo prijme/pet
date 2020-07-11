@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     'wagtailstreamforms',
     'captcha',
     'coverage',
+    'dbbackup',
 ]
 
 MIDDLEWARE = [
@@ -294,3 +295,7 @@ WAGTAILSTREAMFORMS_FORM_TEMPLATES = (
     ('cms/custom_form.html', _("Custom Form Template")),
 )
 WAGTAILSTREAMFORMS_ADVANCED_SETTINGS_MODEL = 'cms.AdvancedFormSetting'
+
+# dbbackup settings
+DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
+DBBACKUP_STORAGE_OPTIONS = {'location': os.path.join(BASE_DIR, '../backups')}
