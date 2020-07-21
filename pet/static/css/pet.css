@@ -1,6 +1,6 @@
 /* general styles for the whole site */
 a {
-    color: navy;
+    color: mediumblue;
 }
 h1, h2, h3, h4, h5 {
     color: navy;
@@ -21,6 +21,9 @@ body {
 /* for the images and text inside streamfields */
 .block-paragraph p {
     color: black;
+}
+.block-code {
+    font-size: 14px;
 }
 .block-image-right {
     float: right;
@@ -177,7 +180,7 @@ footer li span, footer li a, footer li a:hover {
     max-width: 100%;
     margin-left: 0;
 }
-.comment {
+.xtdcomment {
     border: 1px solid lightgrey;
     margin-bottom: 10px;
     padding: 5px;

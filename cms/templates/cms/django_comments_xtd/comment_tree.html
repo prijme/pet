@@ -12,7 +12,7 @@
         {{ item.comment.user_email|xtd_comment_gravatar }}
     {% endif %}
     <div class="media-body">
-        <div class="comment">
+        <div class="xtdcomment">
             <h6 class="mb-1 small d-flex">
                 <div class="mr-auto">{{ item.comment.submit_date|localize }}&nbsp;-&nbsp;{% if item.comment.url and not item.comment.is_removed %}<a href="{{ item.comment.url }}" target="_new">{% endif %}{{ item.comment.user.display_name }}{% if item.comment.url %}</a>{% endif %}{% if item.comment.user and item.comment.user|has_permission:"django_comments.can_moderate" %}&nbsp;<span class="badge badge-secondary">{% trans "moderator" %}</span>{% endif %}&nbsp;&nbsp;<a class="permalink" title="{% trans 'comment permalink' %}" href="{% get_comment_permalink item.comment %}">¶</a></div>
                 <span>

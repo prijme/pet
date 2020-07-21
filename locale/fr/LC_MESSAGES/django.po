@@ -161,7 +161,7 @@ msgstr "Retour aux articles"
 
 #: cms/templates/cms/article_page.html:80
 msgid "Comment on this article ("
-msgstr "Commentez cet article"
+msgstr "Commentez cet article ("
 
 #: cms/templates/cms/article_page.html:80
 msgid "sign in first"
