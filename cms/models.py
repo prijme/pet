@@ -275,7 +275,8 @@ class CustomComment(XtdComment):
     page = ParentalKey(ArticlePage, on_delete=models.CASCADE, related_name='customcomments')
 
     def save(self, *args, **kwargs):
-        self.user_name = self.user.display_name
+        if self.user:
+            self.user_name = self.user.display_name
         self.page = ArticlePage.objects.get(pk=self.object_pk)
         super(CustomComment, self).save(*args, **kwargs)
 

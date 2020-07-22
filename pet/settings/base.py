@@ -278,7 +278,7 @@ COMMENTS_APP = 'django_comments_xtd'
 COMMENTS_XTD_SALT = (b"Timendi causa est nescire. "
                      b"Aequam memento rebus in arduis servare mentem.")
 COMMENTS_XTD_FROM_EMAIL = "noreply@pythoneatstail.com"
-COMMENTS_XTD_CONTACT_EMAIL = "helpdesk@fpythoneatstail.com"
+COMMENTS_XTD_CONTACT_EMAIL = "mail@prijme.com"
 COMMENTS_XTD_MODEL = 'cms.models.CustomComment'
 COMMENTS_XTD_MAX_THREAD_LEVEL = 1  # default is 0
 COMMENTS_XTD_LIST_ORDER = ('-thread_id', 'order')  # default is ('thread_id', 'order')
