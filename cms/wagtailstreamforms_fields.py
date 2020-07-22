@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 class ReCaptchaField(BaseField):
     field_class = ReCaptchaField
     icon = 'success'
-    label = _("ReCAPTCHA field")
+    label = _("ReCaptcha field")
 
     def get_options(self, block_value):
          options = super().get_options(block_value)

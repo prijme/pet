@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PythonEatsTail\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-03 13:00+0000\n"
+"POT-Creation-Date: 2020-07-22 11:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Paul Smits paul@prijme.com\n"
 "Language-Team: français <LL@li.org>\n"
@@ -227,8 +227,8 @@ msgid "View more"
 msgstr "Voir plus"
 
 #: cms/wagtailstreamforms_fields.py:10
-msgid "ReCAPTCHA field"
-msgstr "Champ ReCAPTCHA"
+msgid "ReCaptcha field"
+msgstr "Champ ReCaptcha"
 
 #: home/templates/home/welcome_page.html:6
 msgid "Visit the Wagtail website"
@@ -276,7 +276,7 @@ msgstr "Interface d'administration"
 msgid "Create your superuser first!"
 msgstr "Créez d'abord votre superutilisateur!"
 
-#: pet/settings/base.py:294
+#: pet/settings/base.py:295
 msgid "Custom Form Template"
 msgstr "Modèle de formulaire personnalisé"
 

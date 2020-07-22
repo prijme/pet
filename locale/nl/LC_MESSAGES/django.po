@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PythonEatsTail\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-03 13:02+0000\n"
+"POT-Creation-Date: 2020-07-22 11:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Paul Smits paul@prijme.com\n"
 "Language-Team: Nederlands <LL@li.org>\n"
@@ -166,7 +166,7 @@ msgstr "log eerst in"
 
 #: cms/templates/cms/article_page.html:80
 msgid " or confirm by name and email below)"
-msgstr " of bevesting hieronder met naam en email)"
+msgstr " of bevestig hieronder met naam en email)"
 
 #: cms/templates/cms/article_page.html:96
 #: userauth/templates/userauth/account/login.html:5
@@ -224,8 +224,8 @@ msgid "View more"
 msgstr "Lees meer"
 
 #: cms/wagtailstreamforms_fields.py:10
-msgid "ReCAPTCHA field"
-msgstr "ReCAPTCHA veld"
+msgid "ReCaptcha field"
+msgstr "ReCaptcha veld"
 
 #: home/templates/home/welcome_page.html:6
 msgid "Visit the Wagtail website"
@@ -273,9 +273,9 @@ msgstr "Admin interface"
 msgid "Create your superuser first!"
 msgstr "Creëer eerst een superuser!"
 
-#: pet/settings/base.py:294
+#: pet/settings/base.py:295
 msgid "Custom Form Template"
-msgstr "Sjabloon voor aangepast formulier"
+msgstr "Template voor aangepast formulier"
 
 #: userauth/forms.py:21 userauth/templates/userauth/account/profile.html:26
 msgid "First name"
@@ -504,8 +504,7 @@ msgstr "Update uw account"
 
 #: userauth/templates/userauth/account/signup.html:45
 msgid "or sign up with one of your existing third party accounts:"
-msgstr ""
-"of registreer met behulp van een van uw bestaande social-media-accounts:"
+msgstr "of registreer met behulp van een van uw bestaande social-media-accounts:"
 
 #: userauth/templates/userauth/account/signup.html:52
 #: userauth/templates/userauth/socialaccount/signup.html:41
