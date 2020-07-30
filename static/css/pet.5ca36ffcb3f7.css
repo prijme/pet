@@ -1,0 +1,201 @@
+/* general styles for the whole site */
+a {
+    color: mediumblue;
+}
+h1, h2, h3, h4, h5 {
+    color: navy;
+}
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+/* to make space for the footer on the bottom of the page */
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 50px;
+}
+/* for the images and text inside streamfields */
+.block-paragraph p {
+    color: black;
+}
+.block-code {
+    font-size: 14px;
+}
+.block-image-right {
+    float: right;
+    margin-left: 20px;
+    font: italic 12px Georgia, serif;
+}
+.block-image-left {
+    float: left;
+    margin-right: 20px;
+    font: italic 12px Georgia, serif;
+}
+.block-image-center {
+    display: grid;
+    /* justify-content works here because Wagtail creates an image of fixed dimensions */
+    justify-content: center;
+    overflow: hidden;
+    font: italic 12px Georgia, serif;
+}
+/* for the videos inside streamfields */
+.block-video-right {
+    float: right;
+    margin-left: 20px;
+    font: italic 12px Georgia, serif;
+}
+.block-video-left {
+    float: left;
+    margin-right: 20px;
+    font: italic 12px Georgia, serif;
+}
+.block-video-center {
+    display: grid;
+    /* margin auto works here because embed adapts to size of container */
+    margin: auto;
+    overflow: hidden;
+    font: italic 12px Georgia, serif;
+}
+.block-video-small {
+    width: 240px;
+    height: auto;
+}
+.block-video-medium {
+    width: 480px;
+    height: auto;
+    max-width: 100%;
+}
+.block-video-large {
+    width: 2400px;
+    height: auto;
+    max-width: 100%;
+}
+/* to make embedded objects responsive https://docs.wagtail.io/en/v2.9/topics/writing_templates.html#responsive-embeds */
+.rich-text img {
+    max-width: 100%;
+    height: auto;
+}
+.responsive-object {
+    position: relative;
+}
+.responsive-object iframe,
+.responsive-object object,
+.responsive-object embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/* for the images with text overlay on cms pages */
+.card-img-overlay .card-title, .card-subtitle, .card-text {
+    color: white;
+}
+p.card-subtitle {
+    color: white;
+}
+.card.article, .card.theme {
+    border: none;
+}
+.article, .theme {
+    width: 320px;
+    height: 240px;
+}
+.img-front {
+    position: relative;
+    max-width: 100%;
+}
+.img-default {
+    position: relative;
+    max-width: 100%;
+    background-color: grey;
+}
+.img-background {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    left: 0;
+    background-color: navy;
+    opacity: 0;
+    transition: opacity 300ms;
+}
+a:hover .img-background {
+    opacity: 0.6;
+}
+/* to adjust inline code to Wagtailcodeblock default styling */
+code {
+    background-color: #F3F0EE;
+    padding: 2px;
+}
+/* for the navigation menu */
+a.menuitem {
+    color: navy;
+    font-size: large;
+    font-weight: bold;
+}
+.dropdown-menu {
+    min-width: 60px;
+}
+/* slightly enlarge the image on hover */
+a.menuitem .image-menu {
+    transition: transform 300ms;
+}
+a.menuitem:hover .image-menu {
+    transform: scale(1.1);
+}
+a.menuicon:hover {
+    text-decoration: none;
+}
+/* for the logo */
+.navbar .navbar-brand {
+    font-family: 'IM Fell English', serif;
+    font-size: xx-large;
+    color: navy;
+}
+/* for the footer; see also settings for html and body */
+footer {
+    background-color: navy;
+    height: 50px;
+    padding-top: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+footer ul {
+    list-style-type: none;
+}
+footer li span, footer li a, footer li a:hover {
+    display: inline;
+    color: white;
+    font-size: 12px;
+    margin-right: 40px;
+}
+/* for the comment section on article pages */
+.comment-form  {
+    width: 800px;
+    max-width: 100%;
+    margin-left: 0;
+}
+.xtdcomment {
+    border: 1px solid lightgrey;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+.media-list {
+    width: 800px;
+    max-width: 100%;
+    margin-left: 0;
+}
+/* for thumbnail image in comments */
+.profile-image-thumbnail {
+    float: left;
+    width: 64px;
+    height: 64px;
+    max-width: 100%;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
