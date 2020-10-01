@@ -40,7 +40,7 @@ Paul Smits
 ## License
 This project is licensed under the MIT License - see the LICENSE.txt file for details
 
-## Acknowledgments
+## Acknowledgements
 An effort has been made to stay as close as possible to the official documentation of Django, Wagtail, allauth etc. The following sources where inspiring:
 - Stories about Python, Django and Web Development: https://simpleisbetterthancomplex.com/
 - Learning Wagtail from scratch: https://learnwagtail.com/
