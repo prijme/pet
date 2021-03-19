@@ -1,4 +1,4 @@
-Django==3.0.8
+Django==3.1.6
 wagtail==2.9.3
 psycopg2-binary==2.8.5
 django-countries==6.1.2
