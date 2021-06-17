@@ -1,5 +1,5 @@
 Django==3.0.8
-wagtail==2.9.3
+wagtail==2.11.8
 psycopg2-binary==2.8.5
 django-countries==6.1.2
 django-allauth==0.42.0
